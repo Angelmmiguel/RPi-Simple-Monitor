@@ -1,0 +1,4 @@
+Server/prueba*.rb
+Server/config/*.*
+Server/Gemfile.lock
+Server/log/*
