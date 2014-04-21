@@ -1,4 +1,6 @@
 RPi-Simple-Monitor
 ==================
 
-A simple server to get the basic stats of your Raspberry Pi
+Un pequeño servidor para monitorizar el estado de tu RaspberryPi. 
+
+## Funcionalidades 

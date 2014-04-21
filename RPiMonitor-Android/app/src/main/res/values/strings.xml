@@ -5,4 +5,10 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Home activity -->
+    <string name="label_ip">Where is your Raspberry Pi?</string>
+    <string name="hint_ip">Ex: example.com, 192.168.XXX.XXX...</string>
+    <string name="button_connect">Connect</string>
+    <string name="title_activity_info">Info</string>
+
 </resources>

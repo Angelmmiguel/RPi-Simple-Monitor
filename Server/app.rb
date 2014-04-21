@@ -11,8 +11,12 @@ require_relative("collector/memory.rb")
 #@regexMem = /KiB Mem:\s*(\d*)[\s\w]*,\s*(\d*)[\s\w]*,\s*(\d*)[\s\w]*,\s*(\d*)/;
 #@regexMemswap = /KiB Swap:\s*(\d*)[\s\w]*,\s*(\d*)[\s\w]*,\s*(\d*)[\s\w]*,\s*(\d*)/;
 
+# Cambiamos el puerto y lo iniciamos en produccion
+set :port, 61456
+set :environment, :production
+
 get '/' do
-  'Hello world!'
+  'Hello RPi!'
 end
 
 get '/cpu.?:format?' do 
@@ -94,6 +98,7 @@ end
 get '/stats.?:format?' do
 
 	output = `top -n 1 -b`;
+	name = `hostname`;
 
 	cpu = Cpu.new(output);
 	memory = Memory.new(output);
@@ -103,6 +108,7 @@ get '/stats.?:format?' do
 		if params[:format] != nil && params[:format] == 'json' then
 
 			{:status => true, :result => {
+				:name => name,
 				:memory => {
 					:physical => {
 						:used => memory.used(),

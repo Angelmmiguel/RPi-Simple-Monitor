@@ -9,8 +9,32 @@
     tools:context="com.rpimonitor.app.HomeActivity">
 
     <TextView
-        android:text="@string/hello_world"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/label_ip"
+        android:id="@+id/label_ip"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/label" />
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_ip"
+        android:layout_marginTop="10dp"
+        android:hint="@string/hint_ip"
+        android:layout_below="@+id/label_ip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_connect"
+        android:layout_marginTop="15dp"
+        android:id="@+id/connect"
+        android:layout_below="@+id/edit_ip"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

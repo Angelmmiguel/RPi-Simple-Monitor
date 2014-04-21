@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RPiMonitor</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Home activity -->
+    <string name="label_ip">¿Dónde está tu Raspberry Pi?</string>
+    <string name="hint_ip">Ej: ejemplo.com, 192.168.XXX.XXX...</string>
+    <string name="button_connect">Conectar</string>
+
+</resources>

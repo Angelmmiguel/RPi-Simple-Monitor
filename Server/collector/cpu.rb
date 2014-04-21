@@ -11,6 +11,8 @@ class Cpu
 		#regex = /CPU usage:\s*([0-9\.]*)%[\s\w]*,\s*([0-9\.]*)%[\s\w]*,\s*([0-9\.]*)%[\s\w]*/;
 		regex = /%Cpu\(s\):\s*([0-9\,]*)[\s\w]*,\s*([0-9\,]*)[\s\w]*,\s*([0-9\,]*)[\s\w]*,\s*([0-9\,]*)[\s\w]*,\s*([0-9\,]*)[\s\w]*,\s*([0-9\,]*)[\s\w]*,\s*([0-9\,]*)[\s\w]*,\s*([0-9\,]*)/;
 
+		# FIXME capturar tambien la CPU consumida por el comando top y restarla a la CPU de usuario
+
 		@result = top_output.match regex
 
 		if !@result.nil? then
