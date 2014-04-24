@@ -8,9 +8,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.rpimonitor.app.models.Cpu;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.rpimonitor.app.models.Memory;
 
 
 public class InfoActivity extends ActionBarActivity {
@@ -20,19 +18,10 @@ public class InfoActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
-        final TextView cpuUser = (TextView) findViewById(R.id.cpu_user);
-        final TextView cpuSystem = (TextView) findViewById(R.id.cpu_system);
-        final TextView cpuOther = (TextView) findViewById(R.id.cpu_other);
-        final TextView cpuFree = (TextView) findViewById(R.id.cpu_free);
-
         Intent i = getIntent();
 
-        Cpu cpu = (Cpu) i.getSerializableExtra("CPU");
-
-        cpuUser.setText("User: " + String.valueOf(cpu.getUser()) + "%");
-        cpuSystem.setText("System: " + String.valueOf(cpu.getSystem())+ "%");
-        cpuOther.setText("Other: " + String.valueOf(cpu.getOther())+ "%");
-        cpuFree.setText("Free: " + String.valueOf(cpu.getFree())+ "%");
+        // Introducimos los valores
+        initValues(i);
 
         // Iniciamos el actionBar
         getSupportActionBar().setTitle(i.getStringExtra("Hostname"));
@@ -60,4 +49,49 @@ public class InfoActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Funcion que introduce los valores en las referencias de la interfaz
+     * */
+    private void initValues(Intent i){
+
+        // Referencias de CPU
+        final TextView cpuUser = (TextView) findViewById(R.id.cpu_user);
+        final TextView cpuSystem = (TextView) findViewById(R.id.cpu_system);
+        final TextView cpuOther = (TextView) findViewById(R.id.cpu_other);
+        final TextView cpuFree = (TextView) findViewById(R.id.cpu_free);
+
+        // Referencias de memoria fisica
+        final TextView memoryUsed = (TextView) findViewById(R.id.memory_used);
+        final TextView memoryFree = (TextView) findViewById(R.id.memory_free);
+        final TextView memoryPercent = (TextView) findViewById(R.id.memory_percent);
+        final TextView memoryBuffered = (TextView) findViewById(R.id.memory_buffered);
+
+        // Referencias de memoria swap
+        final TextView swapUsed = (TextView) findViewById(R.id.swap_used);
+        final TextView swapFree = (TextView) findViewById(R.id.swap_free);
+        final TextView swapPercent = (TextView) findViewById(R.id.swap_percent);
+        final TextView swapBuffered = (TextView) findViewById(R.id.swap_buffered);
+
+        Cpu cpu = (Cpu) i.getSerializableExtra("Cpu");
+
+        cpuUser.setText("User: " + String.valueOf(cpu.getUser()) + "%");
+        cpuSystem.setText("System: " + String.valueOf(cpu.getSystem())+ "%");
+        cpuOther.setText("Other: " + String.valueOf(cpu.getOther())+ "%");
+        cpuFree.setText("Free: " + String.valueOf(cpu.getFree())+ "%");
+
+        Memory physical = (Memory) i.getSerializableExtra("MemoryPhysical");
+
+        memoryUsed.setText("Used: " + String.valueOf(physical.getUsed()) + "B");
+        memoryFree.setText("Free: " + String.valueOf(physical.getFree()) + "B");
+        memoryPercent.setText("Usage percent: " + String.valueOf(physical.getPercent()) + "%");
+        memoryBuffered.setText("Buffered: " + String.valueOf(physical.getCached()) + "B");
+
+        Memory swap = (Memory) i.getSerializableExtra("MemorySwap");
+
+        swapUsed.setText("Used: " + String.valueOf(swap.getUsed()) + "B");
+        swapFree.setText("Free: " + String.valueOf(swap.getFree()) + "B");
+        swapPercent.setText("Usage percent: " + String.valueOf(swap.getPercent()) + "%");
+        swapBuffered.setText("Buffered: " + String.valueOf(swap.getCached()) + "B");
+
+    }
 }

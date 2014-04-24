@@ -8,46 +8,187 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.rpimonitor.app.InfoActivity">
 
-    <TextView
-        android:text="CPU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
+    <ImageView
+        android:id="@+id/cpu_image"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_cpu"
+        android:layout_marginRight="6dp"/>
 
     <TextView
+        android:id="@+id/cpu_label"
+        android:layout_marginTop="5dp"
+        android:text="CPU"
+        android:layout_toRightOf="@+id/cpu_image"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:textColor="@color/label"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/cpu_image"
+        android:background="@color/label_separator"/>
+
+    <LinearLayout
+        android:id="@+id/cpu_info_wrap"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:id="@+id/cpu_user"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:layout_below="@+id/cpu_label">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/cpu_user"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:id="@+id/cpu_system" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:id="@+id/cpu_other" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:id="@+id/cpu_free"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/memory_image"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_below="@+id/cpu_info_wrap"
+        android:src="@drawable/ic_ram"
+        android:layout_marginRight="6dp"/>
 
     <TextView
+        android:id="@+id/memory_label"
+        android:layout_marginTop="5dp"
+        android:text="Memory"
+        android:layout_below="@+id/cpu_info_wrap"
+        android:layout_toRightOf="@+id/memory_image"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:textColor="@color/label"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/memory_image"
+        android:background="@color/label_separator"/>
+
+    <LinearLayout
+        android:id="@+id/memory_info_wrap"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:id="@+id/cpu_system"
-        android:layout_below="@+id/cpu_user"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:layout_below="@+id/memory_label">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/memory_used"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:id="@+id/memory_free" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:id="@+id/memory_percent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:id="@+id/memory_buffered"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/swap_image"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_below="@+id/memory_info_wrap"
+        android:src="@drawable/ic_swap"
+        android:layout_marginRight="6dp"/>
 
     <TextView
+        android:id="@+id/swap_label"
+        android:layout_marginTop="5dp"
+        android:text="SWAP"
+        android:layout_below="@+id/memory_info_wrap"
+        android:layout_toRightOf="@+id/swap_image"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:textColor="@color/label"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:id="@+id/cpu_other"
-        android:layout_below="@+id/cpu_system"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_height="wrap_content"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView
+        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/swap_image"
+        android:background="@color/label_separator"/>
+
+    <LinearLayout
+        android:id="@+id/swap_info_wrap"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:id="@+id/cpu_free"
-        android:layout_below="@+id/cpu_other"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:layout_below="@+id/swap_label">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/swap_used"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:id="@+id/swap_free" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:id="@+id/swap_percent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:id="@+id/swap_buffered"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

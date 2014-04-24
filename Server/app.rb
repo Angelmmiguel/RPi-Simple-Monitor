@@ -5,6 +5,7 @@ require 'json'
 # Obtenemos las clases
 require_relative("collector/cpu.rb")
 require_relative("collector/memory.rb")
+require_relative("collector/temperature.rb")
 
 # Raspbian
 #@regexCpu = /%Cpu\(s\):\s*([0-9\,]*)[\s\w]*,\s*([0-9\,]*)[\s\w]*,\s*([0-9\,]*)[\s\w]*,\s*([0-9\,]*)[\s\w]*,\s*([0-9\,]*)[\s\w]*,\s*([0-9\,]*)[\s\w]*,\s*([0-9\,]*)[\s\w]*,\s*([0-9\,]*)/;
@@ -102,6 +103,7 @@ get '/stats.?:format?' do
 
 	cpu = Cpu.new(output);
 	memory = Memory.new(output);
+	temperature = Temperature.new();
 
 	if !cpu.isError && !memory.isError
 
@@ -115,13 +117,21 @@ get '/stats.?:format?' do
 						:buffered => memory.buffered(),
 						:percent => memory.getPercent(),
 						:free => memory.free()
+					},
+					:swap => {
+						:used => memory.usedSwap(),
+						:cached => memory.cachedSwap(),
+						:percent => memory.getPercentSwap(),
+						:free => memory.freeSwap()
 					}
 				},
 				:cpu => {
 					:user => cpu.user(),
 					:system => cpu.system(),
-					:free => cpu.free()
-				}
+					:free => cpu.free(),
+					:other => cpu.other()
+				},
+				:temperature => temperature.temperature()
 			}}.to_json
 
 		else 

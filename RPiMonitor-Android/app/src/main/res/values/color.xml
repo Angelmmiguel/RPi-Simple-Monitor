@@ -2,5 +2,6 @@
 <resources>
 
     <color name="label">#5f5f5f</color>
+    <color name="label_separator">#ffa9a9a9</color>
 
 </resources>

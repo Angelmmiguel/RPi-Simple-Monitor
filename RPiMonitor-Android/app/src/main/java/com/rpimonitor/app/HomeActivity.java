@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.rpimonitor.app.models.Cpu;
+import com.rpimonitor.app.models.Memory;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -160,8 +161,31 @@ public class HomeActivity extends ActionBarActivity {
                             (float)cpuJson.getDouble("system"),
                             (float)cpuJson.getDouble("free"));
 
+                    JSONObject memoryJson = response.getJSONObject("result").getJSONObject("memory");
+
+                    JSONObject physicalMemory = memoryJson.getJSONObject("physical");
+
+                    Memory physical = new Memory(
+                            (float)physicalMemory.getDouble("used"),
+                            (float)physicalMemory.getDouble("free"),
+                            (float)physicalMemory.getDouble("percent"),
+                            (float)physicalMemory.getDouble("buffered")
+                    );
+
+                    JSONObject swapMemory = memoryJson.getJSONObject("swap");
+                    
+                    Memory swap = new Memory(
+                            (float)swapMemory.getDouble("used"),
+                            (float)swapMemory.getDouble("free"),
+                            (float)swapMemory.getDouble("percent"),
+                            (float)swapMemory.getDouble("cached")
+                    );
+
+
                     Intent info = new Intent(getBaseContext(), InfoActivity.class);
-                    info.putExtra("CPU", cpu);
+                    info.putExtra("Cpu", cpu);
+                    info.putExtra("MemoryPhysical", physical);
+                    info.putExtra("MemorySwap", swap);
                     info.putExtra("Hostname", response.getJSONObject("result").getString("name"));
                     info.putExtra("IP", url_base);
                     startActivity(info);
