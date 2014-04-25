@@ -9,6 +9,17 @@
     <string name="label_ip">Where is your Raspberry Pi?</string>
     <string name="hint_ip">Ex: example.com, 192.168.XXX.XXX...</string>
     <string name="button_connect">Connect</string>
-    <string name="title_activity_info">Info</string>
+    <string name="title_activity_info">Connect to Raspberry</string>
+    <string name="label_save_devices">Latest devices</string>
+    <string name="no_devices">There aren\'t any previous devices</string>
+    <string name="home_dialog_text">Connecting to Raspberry Pi</string>
+
+    <!-- Info activity -->
+    <string name="label_cpu">CPU</string>
+    <string name="label_memory_physical">Memory</string>
+    <string name="label_memory_swap">Swap</string>
+    <string name="text_cpu_user">User: </string>
+    <string name="text_cpu_s">User: </string>
+
 
 </resources>

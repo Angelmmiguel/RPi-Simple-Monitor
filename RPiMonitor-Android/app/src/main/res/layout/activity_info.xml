@@ -18,7 +18,7 @@
     <TextView
         android:id="@+id/cpu_label"
         android:layout_marginTop="5dp"
-        android:text="CPU"
+        android:text="@string/label_cpu"
         android:layout_toRightOf="@+id/cpu_image"
         android:textSize="19sp"
         android:textStyle="bold"
@@ -78,7 +78,7 @@
     <TextView
         android:id="@+id/memory_label"
         android:layout_marginTop="5dp"
-        android:text="Memory"
+        android:text="@string/label_memory_physical"
         android:layout_below="@+id/cpu_info_wrap"
         android:layout_toRightOf="@+id/memory_image"
         android:textSize="19sp"
@@ -119,13 +119,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
-            android:id="@+id/memory_percent" />
+            android:id="@+id/memory_buffered"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
-            android:id="@+id/memory_buffered"/>
+            android:id="@+id/memory_percent" />
 
     </LinearLayout>
 
@@ -140,7 +140,7 @@
     <TextView
         android:id="@+id/swap_label"
         android:layout_marginTop="5dp"
-        android:text="SWAP"
+        android:text="@string/label_memory_swap"
         android:layout_below="@+id/memory_info_wrap"
         android:layout_toRightOf="@+id/swap_image"
         android:textSize="19sp"
@@ -181,13 +181,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
-            android:id="@+id/swap_percent" />
+            android:id="@+id/swap_buffered"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
-            android:id="@+id/swap_buffered"/>
+            android:id="@+id/swap_percent" />
 
     </LinearLayout>
 

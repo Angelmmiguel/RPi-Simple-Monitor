@@ -74,24 +74,25 @@ public class InfoActivity extends ActionBarActivity {
 
         Cpu cpu = (Cpu) i.getSerializableExtra("Cpu");
 
-        cpuUser.setText("User: " + String.valueOf(cpu.getUser()) + "%");
-        cpuSystem.setText("System: " + String.valueOf(cpu.getSystem())+ "%");
-        cpuOther.setText("Other: " + String.valueOf(cpu.getOther())+ "%");
-        cpuFree.setText("Free: " + String.valueOf(cpu.getFree())+ "%");
+        cpuUser.setText("Usuario: " + String.valueOf(cpu.getUser()) + "%");
+        cpuSystem.setText("Sistema: " + String.valueOf(cpu.getSystem())+ "%");
+        cpuOther.setText("Otros: " + String.valueOf(cpu.getOther())+ "%");
+        cpuFree.setText("Libre: " + String.valueOf(cpu.getFree())+ "%");
 
         Memory physical = (Memory) i.getSerializableExtra("MemoryPhysical");
 
-        memoryUsed.setText("Used: " + String.valueOf(physical.getUsed()) + "B");
-        memoryFree.setText("Free: " + String.valueOf(physical.getFree()) + "B");
-        memoryPercent.setText("Usage percent: " + String.valueOf(physical.getPercent()) + "%");
-        memoryBuffered.setText("Buffered: " + String.valueOf(physical.getCached()) + "B");
+        memoryUsed.setText("En uso: " + String.format("%.2f",physical.getMBUsed()) + "MB");
+        memoryFree.setText("Libre: " + String.format("%.2f",physical.getMBFree()) + "MB");
+        memoryBuffered.setText("En buffer: " + String.format("%.2f",physical.getMBCached()) + "MB");
+        memoryPercent.setText("Porcentaje de uso: " + String.valueOf(physical.getPercent()) + "%");
 
         Memory swap = (Memory) i.getSerializableExtra("MemorySwap");
 
-        swapUsed.setText("Used: " + String.valueOf(swap.getUsed()) + "B");
-        swapFree.setText("Free: " + String.valueOf(swap.getFree()) + "B");
-        swapPercent.setText("Usage percent: " + String.valueOf(swap.getPercent()) + "%");
-        swapBuffered.setText("Buffered: " + String.valueOf(swap.getCached()) + "B");
+        swapUsed.setText("En uso: " + String.format("%.2f",swap.getMBUsed()) + "MB");
+        swapFree.setText("Libre: " + String.format("%.2f",swap.getMBFree()) + "MB");
+        swapBuffered.setText("En caché: " + String.format("%.2f",swap.getMBCached()) + "MB");
+        swapPercent.setText("Porcentaje de uso: " + String.valueOf(swap.getPercent()) + "%");
+
 
     }
 }

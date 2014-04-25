@@ -53,4 +53,17 @@ public class Memory implements Serializable {
     public void setFree(float free) {
         this.free = free;
     }
+
+    public float getMBUsed() {
+        return used/1024;
+    }
+
+    public float getMBCached() {
+        return cached/1024;
+    }
+
+    public float getMBFree() {
+        return free/1024;
+    }
+
 }

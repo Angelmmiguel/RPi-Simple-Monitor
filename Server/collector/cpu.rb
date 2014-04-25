@@ -29,8 +29,20 @@ class Cpu
 
 			# Aplicamos los valores y el exceso del comando top
 			@user = @result[1].to_f - cpuTop
+
+			# Comprobamos si el valor es negativo
+			if @user < 0 then
+				@user = 1;
+			end
+
 			@system = @result[2].to_f
 			@free = @result[4].to_f + cpuTop
+
+			# Comprobamos el valor de free
+			if @free > 100 then
+				@free = 100 - @system - @user
+			end
+
 			@other = 100 - @user - @free - @system
 		else
 			@user = -1
