@@ -48,7 +48,9 @@ Y dentro de la carpeta del servidor ejecutamos:
 
 ### Cliente
 
-Como cliente, la aplicación también dispondrá de interfaz web, por lo que cualquier dispositivo podra acceder a ella. Para la aplicación móvil basta con tener un dispositivo Android con una versión igual o superior a la 2.3
+Como cliente, la aplicación también dispondrá de interfaz web, por lo que cualquier dispositivo podra acceder a ella. Para la aplicación móvil basta con tener un dispositivo Android con una versión igual o superior a la 2.3.
+
+Puedes descargar la aplicación móvil en desarrollo desde: https://play.google.com/store/apps/details?id=com.rpimonitor.app
 
 ## Iniciamos!
 
@@ -57,3 +59,5 @@ Para iniciar el servidor, basta con situarnos con la consola en la carpeta de Se
 	ruby app.rb
 
 Esto iniciará el servidor en el puerto 61456.
+
+Si queréis que vuestra Raspberry Pi sea accesible desde cualquier parte, no solo en red local, necesitaréis tener un DNS que gestione el acceso a vuestra IP o redirigir los datos del puerto 61456 a vuestro dispositivo desde vuestro router.
