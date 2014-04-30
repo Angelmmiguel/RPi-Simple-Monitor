@@ -54,10 +54,22 @@ Puedes descargar la aplicación móvil en desarrollo desde: https://play.google.
 
 ## Iniciamos!
 
-Para iniciar el servidor, basta con situarnos con la consola en la carpeta de Server y ejecutar:
+Para iniciar el servidor, lo primero que debemos hacer es descargar el proyecto en nuestra RaspberryPi. Para ello nos situamos en la carpeta donde queramos descargar el proyecto. Por ejemplo, nos vamos a la home mediante el comando:
 
-	ruby app.rb
+	cd ~/
 
-Esto iniciará el servidor en el puerto 61456.
+Ahora descargamos el proyecto mediante el siguiente comando:
+
+	git clone https://github.com/Angelmmiguel/RPi-Simple-Monitor.git
+
+Esto creará una carpeta llamada RPi-Simple-Monitor con los archivos del proyecto. Solo nos queda iniciar el servidor, para ello nos dirigimos a su carpeta:
+
+	cd RPi-Simple-Monitor/Server
+
+Y ejecutamos:
+
+	ruby app.rb&
+
+Esto iniciará el servidor sin bloquear la consola en el puerto 61456.
 
 Si queréis que vuestra Raspberry Pi sea accesible desde cualquier parte, no solo en red local, necesitaréis tener un DNS que gestione el acceso a vuestra IP o redirigir los datos del puerto 61456 a vuestro dispositivo desde vuestro router.
