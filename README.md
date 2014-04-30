@@ -68,7 +68,7 @@ Esto creará una carpeta llamada RPi-Simple-Monitor con los archivos del proyect
 
 Y ejecutamos:
 
-	ruby app.rb&
+	ruby app.rb &
 
 Esto iniciará el servidor sin bloquear la consola en el puerto 61456.
 
