@@ -37,6 +37,7 @@ Para la instalación de Sinatra y Thin, podemos hacerlo directamente mediante lo
 
 	gem install sinatra
 	gem install thin
+	gem install time_diff
 
 O mediante la gema [Bundler](http://bundler.io/ "Bundler"), para ello instalamos dicha gema:
 
