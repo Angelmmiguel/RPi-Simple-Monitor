@@ -1,6 +1,7 @@
 # Iniciamos
 require 'sinatra'
 require 'json'
+require 'time_diff'
 
 # Obtenemos las clases
 require_relative("collector/cpu.rb")
@@ -109,6 +110,14 @@ get '/stats.?:format?' do
 
 		if params[:format] != nil && params[:format] == 'json' then
 
+			uptime = getUptime
+
+			if uptime.nil?
+				uptime = { :error => 1 }
+			else 
+				uptime[:error] = 0
+			end
+
 			{:status => true, :result => {
 				:name => name,
 				:memory => {
@@ -131,7 +140,8 @@ get '/stats.?:format?' do
 					:free => cpu.free(),
 					:other => cpu.other()
 				},
-				:temperature => temperature.temperature()
+				:temperature => temperature.temperature(),
+				:uptime => uptime
 			}}.to_json
 
 		else 
@@ -146,4 +156,27 @@ get '/stats.?:format?' do
 			'No hemos podido obtener datos' 
 		end
 	end
+end
+
+def getUptime
+
+	# Regex para obtener el uptime y valor
+	reg = /\s*(\d*\.\d*)/
+	out = `cat /proc/uptime`
+
+	# Obtenemos el uptime
+	res = out.match reg
+
+	if res.nil? then
+
+		return nil
+
+	else 
+
+		uptime = Time.diff(Time.at(0), Time.at(res[1].to_f));
+
+		return uptime
+
+	end
+
 end
